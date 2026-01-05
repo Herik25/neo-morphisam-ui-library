@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "./components/Card";
 import Nav from "./components/Nav";
+import NeuProgressBar from "./components/ProgressBar";
 import NeuSlider from "./components/Slider";
 
 function App() {
@@ -39,6 +40,21 @@ function App() {
             This is the Footer
             <NeuSlider variant={"secondary"} />
           </CardFooter>
+        </Card>
+      </div>
+      <div className="m-6">
+        <Card>
+          <CardHeader>
+            <CardTitle>Progress Bar</CardTitle>
+            <CardDescription>
+              simple vertical/horizontal progress bar
+            </CardDescription>
+            <CardContent className="space-y-4 h-40 flex gap-4">
+              <NeuProgressBar max={100} value={25} orientation={"vertical"} />
+              <NeuProgressBar max={100} value={50} orientation={"vertical"} />
+              <NeuProgressBar max={100} value={75} orientation={"vertical"} />
+            </CardContent>
+          </CardHeader>
         </Card>
       </div>
     </main>
