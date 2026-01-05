@@ -7,9 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "./components/Card";
-import NeuCheckbox from "./components/Checkbox";
 import Nav from "./components/Nav";
-import NeuSwitch from "./components/Switch";
+import NeuSlider from "./components/Slider";
 
 function App() {
   return (
@@ -37,8 +36,8 @@ function App() {
             </ul>
           </CardContent>
           <CardFooter>
-            <NeuSwitch />
-            <NeuCheckbox />
+            This is the Footer
+            <NeuSlider variant={"secondary"} />
           </CardFooter>
         </Card>
       </div>
