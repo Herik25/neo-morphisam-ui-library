@@ -1,3 +1,4 @@
+import Badge from "./components/Badge";
 import Button from "./components/Button";
 import {
   Card,
@@ -48,6 +49,10 @@ function App() {
             <CardTitle>Progress Bar</CardTitle>
             <CardDescription>
               simple vertical/horizontal progress bar
+              <Badge>Badge</Badge>
+              <Badge variant={"primary"}>Badge</Badge>
+              <Badge variant={"desctructive"}>Badge</Badge>
+              <Badge variant={"warning"}>Badge</Badge>
             </CardDescription>
             <CardContent className="space-y-4 h-40 flex gap-4">
               <NeuProgressBar max={100} value={25} orientation={"vertical"} />
