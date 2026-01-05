@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "./components/Card";
+import Input from "./components/Input";
 import Nav from "./components/Nav";
 import NeuProgressBar from "./components/ProgressBar";
 import NeuSlider from "./components/Slider";
@@ -59,6 +60,9 @@ function App() {
               <NeuProgressBar max={100} value={50} orientation={"vertical"} />
               <NeuProgressBar max={100} value={75} orientation={"vertical"} />
             </CardContent>
+            <CardFooter>
+              <Input type="text" />
+            </CardFooter>
           </CardHeader>
         </Card>
       </div>
