@@ -19,6 +19,7 @@ import { NeuSwitch } from "./components/Switch";
 function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [selectedPlans, setSelectedPlans] = useState("starter");
+  const [caloeries, setCalories] = useState(250);
   const revenueData = [
     { name: "Jan", value: 3000 },
     { name: "Feb", value: 9500 },
@@ -66,7 +67,11 @@ function App() {
                   <CardDescription>Sabrina Carpenter</CardDescription>
                 </div>
                 <div>
-                  <NeuProgressBar max={100} value={15} className="min-w-xs" />
+                  <NeuProgressBar
+                    max={100}
+                    value={15}
+                    className="min-w-60 sm:min-w-xs"
+                  />
                   <div className="flex justify-between mt-1 text-xs text-muted-foreground">
                     <span>0:00</span>
                     <span>3:07</span>
@@ -210,17 +215,21 @@ function App() {
                   size={"icon"}
                   shape={"circle"}
                   aria-label="Decrease daily calories goal"
+                  onClick={() =>
+                    setCalories((calories) => Math.max(0, calories - 1))
+                  }
                 >
                   <Minus />
                 </Button>
                 <div className="text-center text-sm space-y-1">
-                  <CardTitle>350</CardTitle>
+                  <CardTitle>{caloeries}</CardTitle>
                   <p className="text-xs">CALORIES/DAY</p>
                 </div>
                 <Button
                   size={"icon"}
                   shape={"circle"}
                   aria-label="Decrease daily calories goal"
+                  onClick={() => setCalories((caloeries) => caloeries + 1)}
                 >
                   <Plus />
                 </Button>
