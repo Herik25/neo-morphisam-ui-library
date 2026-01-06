@@ -4,15 +4,29 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "./components/Card";
 import Nav from "./components/Nav";
 import NeuProgressBar from "./components/ProgressBar";
 import { useState } from "react";
+import NeuCheckbox from "./components/Checkbox";
+import Input from "./components/Input";
+import { Line, LineChart, ResponsiveContainer } from "recharts";
 
 function App() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [selectedPlans, setSelectedPlans] = useState("starter");
+  const revenueData = [
+    { name: "Jan", value: 3000 },
+    { name: "Feb", value: 9500 },
+    { name: "Mar", value: 8000 },
+    { name: "Apr", value: 500 },
+    { name: "May", value: 5120 },
+    { name: "Jun", value: 10240 },
+  ];
+
   return (
     <main className="space-x-4">
       <Nav />
@@ -92,14 +106,99 @@ function App() {
               </div>
             </CardContent>
           </Card>
-        </div>
-        <div className="flex-1 space-y-6">
           <Card>
             <CardHeader>
-              <CardTitle>This is title</CardTitle>
-              <CardDescription>This is the desc</CardDescription>
+              <CardTitle>Upgrade your subscription</CardTitle>
+              <CardDescription>
+                You are currently on the free plan. Upgrade to the pro plan to
+                get access to all features.
+              </CardDescription>
             </CardHeader>
-            <CardContent>This is my card content</CardContent>
+            <CardContent>
+              <div className="space-y-1">
+                <CardTitle>Plan</CardTitle>
+                <CardDescription>
+                  Select the plan that best fits your needs
+                </CardDescription>
+                <div className="grid grid-cols-2 gap-4 mt-4">
+                  <div
+                    className={`flex flex-col p-4 rounded-lg cursor-pointer transition-all border-2 border-border duration-350 ${
+                      selectedPlans === "starter"
+                        ? "bg-primary/10 shadow-inset"
+                        : "bg-background shadow-raised"
+                    }`}
+                  >
+                    <div className="flex items-center space-x-2 mb-2">
+                      <NeuCheckbox
+                        id="starter-plan"
+                        checked={selectedPlans === "starter"}
+                        onClick={() => setSelectedPlans("starter")}
+                      />
+                      <span className="text-sm">Starter plan</span>
+                    </div>
+                  </div>
+                  <div
+                    className={`flex flex-col p-4 rounded-lg cursor-pointer transition-all border-2 border-border duration-350 ${
+                      selectedPlans === "pro"
+                        ? "bg-primary/10 shadow-inset"
+                        : "bg-background shadow-raised"
+                    }`}
+                  >
+                    <div className="flex items-center space-x-2 mb-2">
+                      <NeuCheckbox
+                        id="pro-plan"
+                        checked={selectedPlans === "pro"}
+                        onClick={() => setSelectedPlans("pro")}
+                      />
+                      <span className="text-sm">Pro plan</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-4">
+                <label
+                  htmlFor="notes"
+                  className="mb-2 text-xs block text-muted-foreground"
+                >
+                  Notes
+                </label>
+                <Input placeholder="Notes" id="notes" />
+                <div className="mt-4 flex items-center gap-2">
+                  <NeuCheckbox id="terms" />
+                  <label htmlFor="terms" className="text-sm">
+                    I agree to terms and condition.
+                  </label>
+                </div>
+              </div>
+            </CardContent>
+            <CardFooter className="flex gap-4">
+              <Button variant={"desctructive"}>Cancel</Button>
+              <Button variant={"primary"}>Upgrad Plan</Button>
+            </CardFooter>
+          </Card>
+        </div>
+        <div className="flex-1 space-y-6 w-full">
+          <Card>
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle>Total Revenue</CardTitle>
+              </div>
+              <CardTitle>$10,236.12</CardTitle>
+              <p>+112% from last month</p>
+            </CardHeader>
+            <CardContent className="h-48">
+              <ResponsiveContainer width={"100%"} height={"100%"}>
+                <LineChart data={revenueData}>
+                  <Line
+                    type={"monotone"}
+                    dataKey={"value"}
+                    stroke="var(--color-primary)"
+                    strokeWidth={3}
+                    dot={{ fill: "var(--color-primary)" }}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            </CardContent>
           </Card>
         </div>
       </section>

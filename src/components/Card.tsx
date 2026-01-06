@@ -75,7 +75,7 @@ export function CardTitle(props: CardTitleProps) {
 // Card Desc
 
 const cardDescriptionVariants = cva(
-  "font-semibold leading-none tracking-tight"
+  "font-semibold leading-none tracking-tight text-xs text-muted-foreground"
 );
 
 interface CardDescriptionProps
