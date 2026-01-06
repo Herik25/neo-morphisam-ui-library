@@ -43,7 +43,7 @@ function App() {
         </p>
       </section>
 
-      <section className="flex flex-col max-w-5xl mx-auto md:flex-row items-start gap-8 my-12 px-8">
+      <section className="grid grid-cols-1 max-w-5xl mx-auto md:grid-cols-2 items-start gap-8 my-12 px-8">
         <div className="flex-1 space-y-6 w-full">
           <Card>
             <CardHeader>
@@ -178,8 +178,8 @@ function App() {
             </CardFooter>
           </Card>
         </div>
-        <div className="flex-1 space-y-6 w-full">
-          <Card>
+        <div className="flex-1 space-y-6 w-full flex flex-col h-full">
+          <Card className="md:flex-1">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle>Total Revenue</CardTitle>
@@ -201,7 +201,7 @@ function App() {
               </ResponsiveContainer>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="md:flex-1">
             <CardHeader>
               <CardTitle>Your Move Goal</CardTitle>
               <CardDescription>Track your move goal</CardDescription>
@@ -238,7 +238,7 @@ function App() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="md:flex-1">
             <CardHeader>
               <CardTitle>Cookie Settings</CardTitle>
               <CardDescription>
