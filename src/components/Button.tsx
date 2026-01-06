@@ -44,6 +44,7 @@ function Button(props: ButtonProps) {
       }),
       props.className
     ),
+    tabIndex: 0,
   });
 
   const el = useRender({

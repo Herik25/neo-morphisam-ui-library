@@ -5,7 +5,7 @@ import { Moon, Sun } from "lucide-react";
 function Nav() {
   const { setTheme, theme } = useTheme();
   return (
-    <nav className="py-8 px-12 flex justify-between items-center">
+    <nav className="py-8 px-12 flex justify-between items-center max-w-5xl mx-auto">
       <h1 className="font-boldk">Neumorphism UI</h1>
       <Button
         onClick={() =>
