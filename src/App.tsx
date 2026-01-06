@@ -1,4 +1,4 @@
-import { Pause, Play, SkipBack, SkipForward } from "lucide-react";
+import { Minus, Pause, Play, Plus, SkipBack, SkipForward } from "lucide-react";
 import Button from "./components/Button";
 import {
   Card,
@@ -14,6 +14,7 @@ import { useState } from "react";
 import NeuCheckbox from "./components/Checkbox";
 import Input from "./components/Input";
 import { Line, LineChart, ResponsiveContainer } from "recharts";
+import { NeuSwitch } from "./components/Switch";
 
 function App() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -42,8 +43,8 @@ function App() {
         </p>
       </section>
 
-      <section className="flex flex-col max-w-5xl mx-auto md:flex-row items-start gap-8 my-12">
-        <div className="flex-1 space-y-6">
+      <section className="flex flex-col max-w-5xl mx-auto md:flex-row items-start gap-8 my-12 px-8">
+        <div className="flex-1 space-y-6 w-full">
           <Card>
             <CardHeader>
               <CardTitle>Music Player</CardTitle>
@@ -199,6 +200,76 @@ function App() {
                 </LineChart>
               </ResponsiveContainer>
             </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Your Move Goal</CardTitle>
+              <CardDescription>Track your move goal</CardDescription>
+              <div className="flex gap-4 items-center justify-center mt-4">
+                <Button
+                  size={"icon"}
+                  shape={"circle"}
+                  aria-label="Decrease daily calories goal"
+                >
+                  <Minus />
+                </Button>
+                <div className="text-center text-sm space-y-1">
+                  <CardTitle>350</CardTitle>
+                  <p className="text-xs">CALORIES/DAY</p>
+                </div>
+                <Button
+                  size={"icon"}
+                  shape={"circle"}
+                  aria-label="Decrease daily calories goal"
+                >
+                  <Plus />
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent className="flex items-end justify-center gap-4 h-32">
+              {[85, 55, 24, 80, 100, 20, 36, 11, 40, 1].map((value, i) => (
+                <NeuProgressBar
+                  key={i}
+                  max={100}
+                  value={value}
+                  orientation={"vertical"}
+                />
+              ))}
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Cookie Settings</CardTitle>
+              <CardDescription>
+                Manage your cookie settings here.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="space-y-1">
+                  <p className="font-medium text-sm">Stricktly Necessary</p>
+                  <div className="text-xs text-muted-foreground max-w-[90%]">
+                    These cookies are essential in order to use the website and
+                    use its features.
+                  </div>
+                </div>
+                <NeuSwitch />
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="space-y-1">
+                  <p className="font-medium text-sm">Functional Cookies</p>
+                  <div className="text-xs text-muted-foreground max-w-[90%]">
+                    These cookies allow the website to provide personalized
+                    functionality.
+                  </div>
+                </div>
+                <NeuSwitch />
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Button>Save Prefrences</Button>
+            </CardFooter>
           </Card>
         </div>
       </section>
