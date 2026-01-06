@@ -8,10 +8,10 @@ import {
   CardHeader,
   CardTitle,
 } from "./components/Card";
-import Input from "./components/Input";
 import Nav from "./components/Nav";
 import NeuProgressBar from "./components/ProgressBar";
 import NeuSlider from "./components/Slider";
+import { TabsList, TabsPanel, TabsRoot, TabsTab } from "./components/Tabs";
 
 function App() {
   return (
@@ -61,7 +61,18 @@ function App() {
               <NeuProgressBar max={100} value={75} orientation={"vertical"} />
             </CardContent>
             <CardFooter>
-              <Input type="text" />
+              <TabsRoot>
+                <TabsList>
+                  <TabsTab value={"overview"}>Overview</TabsTab>
+                  <TabsTab value={"user"}>User</TabsTab>
+                </TabsList>
+                <TabsPanel value={"overview"}>
+                  <h1>Overview</h1>
+                </TabsPanel>
+                <TabsPanel value={"user"}>
+                  <h1>User</h1>
+                </TabsPanel>
+              </TabsRoot>
             </CardFooter>
           </CardHeader>
         </Card>
