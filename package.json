@@ -20,7 +20,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsup && npx @tailwindcss/cli -i ./src/index.css -o ./dist/index.css",
-    "build:demo": "vite build --outDir dist-demo", // for demo
+    "build:demo": "vite build --outDir dist-demo",
     "lint": "eslint ."
   },
   "peerDependencies": {
@@ -32,13 +32,13 @@
   "dependencies": {
     "class-variance-authority": "^0.7.1",
     "lucide-react": "^0.562.0",
-    "recharts": "^3.6.0", // for demo
+    "recharts": "^3.6.0",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@tailwindcss/cli": "^4.1.18",
-    "@tailwindcss/vite": "^4.1.18", // for demo
+    "@tailwindcss/vite": "^4.1.18",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
