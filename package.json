@@ -12,7 +12,7 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./index.css": "./dist/index.css" 
+    "./index.css": "./dist/index.css"
   },
   "files": [
     "dist"
@@ -20,6 +20,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsup && npx @tailwindcss/cli -i ./src/index.css -o ./dist/index.css",
+    "build:demo": "vite build --outDir dist-demo", // for demo
     "lint": "eslint ."
   },
   "peerDependencies": {
@@ -31,11 +32,13 @@
   "dependencies": {
     "class-variance-authority": "^0.7.1",
     "lucide-react": "^0.562.0",
+    "recharts": "^3.6.0", // for demo
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@tailwindcss/cli": "^4.1.18",
+    "@tailwindcss/vite": "^4.1.18", // for demo
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
