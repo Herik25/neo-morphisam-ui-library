@@ -40,7 +40,7 @@ npm install react react-dom tailwindcss @base-ui/react
 1. **Import Styles**: Import the library's CSS file in your main entry file (e.g., `main.tsx`, `App.tsx`, or `index.tsx`).
 
    ```tsx
-   import "@harsh2505/neumorphic-ui/dist/index.css";
+   import "@harsh2505/neumorphic-ui/index.css";
    ```
 
 2. **Tailwind Configuration**: Since this library uses Tailwind CSS, ensure your project is set up to process Tailwind classes.
